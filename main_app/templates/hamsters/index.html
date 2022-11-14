@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>All Hamsters</h1>
+
+{% for hamster in hamsters %}
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title">{{ hamster.name }}</span>
+      <p>Gender: {{ hamster.breed }}</p>
+      <p>Description: {{ hamster.description }}</p>
+      <p>Birthday: {{ hamster.birthday }}</p>
+      <p>Height: {{ hamster.height }}</p>
+    </div>
+  </div>
+{% endfor %}
+
+{% endblock %}
