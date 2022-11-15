@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Hamster Details</h1>
+
+<div class="card">
+  <div class="card-content">
+    {% if hamster.gender == 'male' %}
+      <span class="card-gender">♂</span>
+    {% else %}
+      <span class="card-gender">♀</span>
+    {% endif %}
+    <span class="card-title">{{ hamster.name }}</span>
+    <p><span class="bold">Birthday:</span> {{ hamster.birthday }}</p>
+    <p><span class="bold">Height:</span> {{ hamster.height }}</p>
+  </div>
+</div>
+
+{% endblock %}

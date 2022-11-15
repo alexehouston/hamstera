@@ -1,17 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>All Hamsters</h1>
+<h1>Hamster Collection</h1>
 
 {% for hamster in hamsters %}
   <div class="card">
+    <a href="{% url 'detail' hamster.id %}">
     <div class="card-content">
+      {% if hamster.gender == 'male' %}
+        <span class="card-gender">♂</span>
+      {% else %}
+        <span class="card-gender">♀</span>
+      {% endif %}
       <span class="card-title">{{ hamster.name }}</span>
-      <p>Gender: {{ hamster.breed }}</p>
-      <p>Description: {{ hamster.description }}</p>
-      <p>Birthday: {{ hamster.birthday }}</p>
-      <p>Height: {{ hamster.height }}</p>
+      <p><span class="bold">Birthday:</span> {{ hamster.birthday }}</p>
+      <p><span class="bold">Height:</span> {{ hamster.height }}</p>
     </div>
+    </a>
   </div>
 {% endfor %}
 
