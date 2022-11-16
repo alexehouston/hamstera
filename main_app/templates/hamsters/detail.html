@@ -18,6 +18,10 @@
     <p><span class="bold">Birthday:</span> {{ hamster.birthday }}</p>
     <p><span class="bold">Height:</span> {{ hamster.height }}</p>
   </div>
+  <div class="card-action">
+    <a href="{% url 'hamsters_update' hamster.id %}">Edit</a>
+    <a href="{% url 'hamsters_delete' hamster.id %}">Delete</a>
+  </div>
 </div>
 
 {% endblock %}

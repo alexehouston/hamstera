@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Hamster
 
 def home(request):
@@ -19,3 +19,11 @@ def hamsters_detail(request, hamster_id):
 class HamsterCreate(CreateView):
   model = Hamster
   fields = '__all__'
+
+class HamsterUpdate(UpdateView):
+  model = Hamster
+  fields = ['breed', 'description', 'age']
+
+class HamsterDelete(DeleteView):
+  model = Hamster
+  success_url = '/hamsters'
