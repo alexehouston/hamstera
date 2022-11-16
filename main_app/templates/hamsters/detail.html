@@ -3,7 +3,11 @@
 
 <h1>Hamster Details</h1>
 
-<div class="card">
+{% if hamster.gender == 'male' %}
+  <div class="card" style="background-color:#8CC0DE">
+  {% else %}
+  <div class="card" style="background-color:#F4BFBF">
+  {% endif %}
   <div class="card-content">
     {% if hamster.gender == 'male' %}
       <span class="card-gender">♂</span>

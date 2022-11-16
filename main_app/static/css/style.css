@@ -6,10 +6,36 @@ body {
     min-height: 100vh;
     flex-direction: column;
     font-family: 'Montserrat Alternates', sans-serif;
+    /* overflow: hidden; */
+    background-color: #FFD9C0;
+}
+
+.nav-wrapper {
+    background-color: #8CC0DE;
+    text-shadow: 2px 2px grey;
+}
+
+.nav-wrapper a {
+    color: #FAF0D7;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    text-shadow: 2px 2px grey;
 }
 
 li, h1, .card-title {
     font-family: 'Bungee Inline', cursive;
+}
+
+.card a {
+    color: white;
+}
+
+.card-content {
+    color: white;
+    text-shadow: 2px 2px grey;
 }
 
 .card-gender {
@@ -27,20 +53,15 @@ main {
     flex: 1 0 auto;
 }
 
-.home {
-    background-image: url('');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: bottom;
+.hamtaro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 98rem;
 }
 
-.hamtaro {
-    width: 100vmin;
-    height: 74rem;
-    background-image: url('https://i.imgur.com/XvB1n6q.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: bottom;
+#hamtaro {
+    width: 100rem;
 }
 
 
