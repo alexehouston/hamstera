@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic.edit import CreateView
 from .models import Hamster
 
 def home(request):
@@ -14,3 +15,7 @@ def hamster_index(request):
 def hamsters_detail(request, hamster_id):
     hamster = Hamster.objects.get(id=hamster_id)
     return render(request, 'hamsters/detail.html', {'hamster': hamster})
+
+class HamsterCreate(CreateView):
+  model = Hamster
+  fields = '__all__'
