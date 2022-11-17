@@ -5,14 +5,40 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    font-family: 'Montserrat Alternates', sans-serif;
     /* overflow: hidden; */
     background-color: #FFD9C0;
 }
 
-.nav-wrapper {
+body, .hamtaro {
+    display: flex;
+}
+
+body, input {
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
+li, h1, h4, .card-title, .btn, form {
+    font-family: 'Bungee Inline', cursive;
+}
+
+.nav-wrapper, h1, h4, .card-content, form label, .btn {
+    text-shadow: 1.5px 1.5px grey;
+}
+
+h1, h4, .card-content, form label, .card a {
+    color: white;
+}
+
+.btn, form label, .card-gender {
+    font-size: 20px;
+}
+
+.card, .card-panel, .btn {
+    border-radius: 25px;
+}
+
+.nav-wrapper, .btn {
     background-color: #8CC0DE;
-    text-shadow: 2px 2px grey;
 }
 
 .nav-wrapper a {
@@ -20,31 +46,15 @@ body {
 }
 
 h1 {
-    color: white;
     text-align: center;
-    text-shadow: 2px 2px grey;
 }
 
-li, h1, .card-title {
-    font-family: 'Bungee Inline', cursive;
-}
-
-.card, .card-panel {
-    border-radius: 25px;
-}
-
-.card a {
-    color: white;
-}
-
-.card-content {
-    color: white;
-    text-shadow: 2px 2px grey;
+.card {
+    background-color: #FAF0D7; 
 }
 
 .card-gender {
     font-weight: 900;
-    font-size: 20px;
     float: left;
     padding-right: 5px;
 }
@@ -58,7 +68,6 @@ li, h1, .card-title {
 }
 
 .hamtaro {
-    display: flex;
     align-items: center;
     justify-content: center;
     height: 98rem;
@@ -68,4 +77,11 @@ li, h1, .card-title {
     width: 100rem;
 }
 
+.btn {
+    margin-top: 25px;
+}
 
+.btn:hover {
+    background-color: white;
+    color: darkgrey;
+}

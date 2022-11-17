@@ -54,7 +54,7 @@
 <hr>
 <div class="row">
   <div class="col s6">
-    <h3>{{ hamster.name }}'s Toys</h3>
+    <h4>{{ hamster.name }}'s Toys</h4>
     {% if hamster.toys.count %}
       {% for toy in hamster.toys.all %}
         <div class="card">
@@ -76,7 +76,7 @@
     {% endif %}
   </div>
   <div class="col s6">
-    <h3>Available Toys</h3>
+    <h4>Available Toys</h4>
     {% if toys.count %}
       {% for toy in toys.all %}
         <div class="card">
@@ -84,8 +84,6 @@
             <span class="card-title">
               A <span style="color: {{ toy.color }}">{{ toy.color }}</span> {{ toy.name }}
             </span>
-          </div>
-          <div class="card-action">
             <form action="" method="POST">
               {% csrf_token %}
               <button type="submit" class="btn">Add</button>

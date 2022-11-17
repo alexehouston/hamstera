@@ -7,13 +7,18 @@
 {% else %}
   <h1>Add Hamster</h1>
 {% endif %}
-
-<form action="" method="POST">
-  {% csrf_token %}
-  <table>
-    {{ form.as_table }}
-  </table>
-  <input type="submit" value="Submit!" class="btn">
-</form>
+<div class="row">
+  <div class="col s12 m4 l3"></div>
+  <div class="col s12 m4 l6">
+    <form action="" method="POST">
+      {% csrf_token %}
+      <table>
+        {{ form.as_table }}
+      </table>
+      <input type="submit" value="Submit!" class="btn">
+    </form>
+  </div>
+  <div class="col s12 m4 l3"></div>
+</div>
 
 {% endblock %}
