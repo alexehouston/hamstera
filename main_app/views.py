@@ -58,3 +58,11 @@ class ToyUpdate(UpdateView):
 class ToyDelete(DeleteView):
   model = Toy
   success_url = '/toys'
+
+def assoc_toy(request, hamster_id, toy_id):
+  Hamster.objects.get(id=hamster_id).toys.add(toy_id)
+  return redirect('detail', hamster_id=hamster_id)
+
+def unassoc_toy(request, hamster_id, toy_id):
+  Hamster.objects.get(id=hamster_id).toys.remove(toy_id)
+  return redirect('detail', hamster_id=hamster_id)
