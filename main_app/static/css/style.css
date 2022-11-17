@@ -29,6 +29,10 @@ li, h1, .card-title {
     font-family: 'Bungee Inline', cursive;
 }
 
+.card, .card-panel {
+    border-radius: 25px;
+}
+
 .card a {
     color: white;
 }
@@ -45,12 +49,12 @@ li, h1, .card-title {
     padding-right: 5px;
 }
 
+.action {
+    padding: 30px;
+}
+
 .bold {
     font-weight: 700;
-}
-  
-main {
-    flex: 1 0 auto;
 }
 
 .hamtaro {

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Hamster
 from .forms import FeedingForm
@@ -24,8 +24,16 @@ class HamsterCreate(CreateView):
 
 class HamsterUpdate(UpdateView):
   model = Hamster
-  fields = ['breed', 'description', 'age']
+  fields = ['name', 'gender', 'birthday', 'height']
 
 class HamsterDelete(DeleteView):
   model = Hamster
   success_url = '/hamsters'
+
+def add_feeding(request, hamster_id):
+  form = FeedingForm(request.POST)
+  if form.is_valid():
+    new_feeding = form.save(commit=False)
+    new_feeding.hamster_id = hamster_id
+    new_feeding.save()
+  return redirect('detail', hamster_id=hamster_id)

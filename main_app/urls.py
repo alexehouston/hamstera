@@ -9,4 +9,5 @@ urlpatterns = [
   path('hamsters/create/', views.HamsterCreate.as_view(), name='hamsters_create'),
   path('hamsters/<int:pk>/update/', views.HamsterUpdate.as_view(), name='hamsters_update'),
   path('hamsters/<int:pk>/delete/', views.HamsterDelete.as_view(), name='hamsters_delete'),
+  path('cats/<int:hamster_id>/add_feeding/', views.add_feeding, name='add_feeding'),
 ]
