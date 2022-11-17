@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Hamster
+from django.views.generic import ListView, DetailView
+from .models import Hamster, Toy
 from .forms import FeedingForm
 
 def home(request):
@@ -15,8 +16,10 @@ def hamster_index(request):
 
 def hamsters_detail(request, hamster_id):
     hamster = Hamster.objects.get(id=hamster_id)
+    id_list = hamster.toys.all().values_list('id')
+    toys_hamster_doesnt_have = Toy.objects.exclude(id__in=id_list)
     feeding_form = FeedingForm()
-    return render(request, 'hamsters/detail.html', {'hamster': hamster, 'feeding_form': feeding_form})
+    return render(request, 'hamsters/detail.html', {'hamster': hamster, 'feeding_form': feeding_form, 'toys': toys_hamster_doesnt_have})
 
 class HamsterCreate(CreateView):
   model = Hamster
@@ -37,3 +40,21 @@ def add_feeding(request, hamster_id):
     new_feeding.hamster_id = hamster_id
     new_feeding.save()
   return redirect('detail', hamster_id=hamster_id)
+
+class ToyList(ListView):
+  model = Toy
+
+class ToyDetail(DetailView):
+  model = Toy
+
+class ToyCreate(CreateView):
+  model = Toy
+  fields = '__all__'
+
+class ToyUpdate(UpdateView):
+  model = Toy
+  fields = ['name', 'color']
+
+class ToyDelete(DeleteView):
+  model = Toy
+  success_url = '/toys'
