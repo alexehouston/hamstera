@@ -11,6 +11,7 @@ MEALS = (
 class Toy(models.Model):
   name = models.CharField(max_length=50)
   color = models.CharField(max_length=20)
+  img = models.CharField(max_length=100, default='')
 
   def __str__(self):
     return self.name
@@ -20,6 +21,7 @@ class Toy(models.Model):
 
 class Hamster(models.Model):
     name = models.CharField(max_length=100)
+    img = models.CharField(max_length=100, default='')
     gender = models.CharField(max_length=100)
     birthday = models.CharField(max_length=100)
     height = models.CharField(max_length=100)
@@ -33,6 +35,9 @@ class Hamster(models.Model):
 
     def fed_for_today(self):
         return self.feeding_set.filter(date=date.today()).count() >= len(MEALS)
+
+    class Meta:
+        ordering = ['id']
 
 class Feeding(models.Model):
     date = models.DateField()

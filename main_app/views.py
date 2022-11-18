@@ -27,7 +27,7 @@ class HamsterCreate(CreateView):
 
 class HamsterUpdate(UpdateView):
   model = Hamster
-  fields = ['name', 'gender', 'birthday', 'height']
+  fields = ['name', 'img' 'gender', 'birthday', 'height']
 
 class HamsterDelete(DeleteView):
   model = Hamster

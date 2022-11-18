@@ -3,6 +3,7 @@
 
 <h1>Hamster Details</h1>
 
+<div class="container">
 <div class="row">
   <div class="col s6">
     {% if hamster.gender == 'male' %}
@@ -17,8 +18,9 @@
           <span class="card-gender">♀</span>
         {% endif %}
         <span class="card-title">{{ hamster.name }}</span>
+        <img class="hamster" src="{{ hamster.img }}">
         <p><span class="bold">Birthday:</span> {{ hamster.birthday }}</p>
-        <p><span class="bold">Height:</span> {{ hamster.height }}</p></br>
+        <p><span class="bold">Height:</span> {{ hamster.height }}</p>
         <a class="action" href="{% url 'hamsters_update' hamster.id %}">Edit</a>
         <a class="action" href="{% url 'hamsters_delete' hamster.id %}">Delete</a>
       </div>
@@ -31,9 +33,9 @@
       <input type="submit" class="btn" value="Add Feeding">
     </form>
     {% if hamster.fed_for_today %}
-    <div class="card-panel teal-text center-align">{{hamster.name}} has been fed all meals for today.</div>
+    <div class="card-panel teal-text center-align"><span class="name">{{hamster.name}}</span> has been fed all meals for today.</div>
     {% else %}
-    <div class="card-panel red-text center-align">{{hamster.name}} might be hungry!</div>
+    <div class="card-panel red-text center-align"><span class="name">{{hamster.name}}</span> might be hungry!</div>
     {% endif %}
     <table class="striped">
       <thead>
@@ -61,9 +63,8 @@
           <div class="card-content">
             <span class="card-title">
               A <span style="color: {{ toy.color }}">{{ toy.color }}</span> {{ toy.name }}
-            </span>
-          </div>
-          <div class="card-action">
+            </span></br>
+            <img class="toy" src="{{ toy.img }}">
             <form action="{% url 'unassoc_toy' hamster.id toy.id %}" method="POST">
               {% csrf_token %}
               <button type="submit" class="btn">Remove</button>
@@ -84,7 +85,7 @@
             <span class="card-title">
               A <span style="color: {{ toy.color }}">{{ toy.color }}</span> {{ toy.name }}
             </span>
-            <form action="" method="POST">
+            <form action="{% url 'assoc_toy' hamster.id toy.id %}" method="POST">
               {% csrf_token %}
               <button type="submit" class="btn">Add</button>
             </form>
@@ -95,6 +96,7 @@
       <h5>{{cat.name}} Already Has All Toys Available</h5>
     {% endif %}
   </div>
+</div>
 </div>
 
 <script>
