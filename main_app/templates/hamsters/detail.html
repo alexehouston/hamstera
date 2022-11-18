@@ -6,32 +6,36 @@
 <div class="container">
 <div class="row">
   <div class="col s6">
-    {% if hamster.gender == 'male' %}
-    <div class="card" style="background-color:#8CC0DE">
-    {% else %}
-    <div class="card" style="background-color:#F4BFBF">
-    {% endif %}
-      <div class="card-content">
-        {% if hamster.gender == 'male' %}
-          <span class="card-gender">♂</span>
-        {% else %}
-          <span class="card-gender">♀</span>
-        {% endif %}
-        <span class="card-title">{{ hamster.name }}</span>
-        <img class="hamster" src="{{ hamster.img }}">
-        <p><span class="bold">Birthday:</span> {{ hamster.birthday }}</p>
-        <p><span class="bold">Height:</span> {{ hamster.height }}</p>
-        <a class="action" href="{% url 'hamsters_update' hamster.id %}">Edit</a>
-        <a class="action" href="{% url 'hamsters_delete' hamster.id %}">Delete</a>
+    <div class="detail-container">
+      {% if hamster.gender == 'male' %}
+      <div class="card" style="background-color:#8CC0DE">
+      {% else %}
+      <div class="card" style="background-color:#F4BFBF">
+      {% endif %}
+        <div class="card-content">
+          {% if hamster.gender == 'male' %}
+            <span class="card-gender">♂</span>
+          {% else %}
+            <span class="card-gender">♀</span>
+          {% endif %}
+          <span class="card-title">{{ hamster.name }}</span>
+          <img class="hamster" src="{{ hamster.img }}">
+          <p><span class="bold">Birthday:</span> {{ hamster.birthday }}</p>
+          <p><span class="bold">Height:</span> {{ hamster.height }}</p>
+          <a class="action" href="{% url 'hamsters_update' hamster.id %}">Edit</a>
+          <a class="action" href="{% url 'hamsters_delete' hamster.id %}">Delete</a>
+        </div>
+      </div>
       </div>
     </div>
-  </div>
   <div class="col s6">
     <form action="{% url 'add_feeding' hamster.id %}" method="POST">
       {% csrf_token %}
       {{ feeding_form.as_p }}
-      <input type="submit" class="btn" value="Add Feeding">
-    </form>
+      <div class="submit">
+        <input type="submit" class="btn" value="Add Feeding">
+      </div>
+      </form>
     {% if hamster.fed_for_today %}
     <div class="card-panel teal-text center-align"><span class="name">{{hamster.name}}</span> has been fed all meals for today.</div>
     {% else %}
@@ -59,16 +63,16 @@
     <h4>{{ hamster.name }}'s Toys</h4>
     {% if hamster.toys.count %}
       {% for toy in hamster.toys.all %}
-        <div class="card">
-          <div class="card-content">
-            <span class="card-title">
-              A <span style="color: {{ toy.color }}">{{ toy.color }}</span> {{ toy.name }}
-            </span></br>
-            <img class="toy" src="{{ toy.img }}">
-            <form action="{% url 'unassoc_toy' hamster.id toy.id %}" method="POST">
-              {% csrf_token %}
-              <button type="submit" class="btn">Remove</button>
-            </form>
+      <div class="detail-container">
+          <div class="card">
+            <div class="card-content">
+              <span class="card-title">{{ toy.name }}</span>
+              <img class="toy" src="{{ toy.img }}">
+              <form action="{% url 'unassoc_toy' hamster.id toy.id %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn">Remove</button>
+              </form>
+            </div>
           </div>
         </div>
       {% endfor %}
@@ -80,15 +84,16 @@
     <h4>Available Toys</h4>
     {% if toys.count %}
       {% for toy in toys.all %}
-        <div class="card">
-          <div class="card-content">
-            <span class="card-title">
-              A <span style="color: {{ toy.color }}">{{ toy.color }}</span> {{ toy.name }}
-            </span>
-            <form action="{% url 'assoc_toy' hamster.id toy.id %}" method="POST">
-              {% csrf_token %}
-              <button type="submit" class="btn">Add</button>
-            </form>
+        <div class="detail-container">
+          <div class="card">
+            <div class="card-content">
+              <span class="card-title">{{ toy.name }}</span>
+              <img class="toy" src="{{ toy.img }}">
+              <form action="{% url 'assoc_toy' hamster.id toy.id %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn">Add</button>
+              </form>
+            </div>
           </div>
         </div>
       {% endfor %}

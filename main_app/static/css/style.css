@@ -29,7 +29,7 @@ h1, h4, .card-content, form label, .card a {
     color: white;
 }
 
-.btn, form label, .card-gender {
+.btn, form label, .card-gender, h5 {
     font-size: 20px;
 }
 
@@ -41,28 +41,38 @@ h1, h4, .card-content, form label, .card a {
     background-color: #8CC0DE;
 }
 
-.nav-wrapper a {
-    color: #FAF0D7;
-}
-
 h1, h4, h5, .card-content {
     text-align: center;
 }
 
-.hamster-container {
+.hamster, .toy {
+    height: 250px;
+    padding: 15px 0 15px 0;
+    filter: drop-shadow(1px 1px 5px grey)
+}
+
+.nav-wrapper a {
+    color: #FAF0D7;
+}
+
+.hamster-container, .detail-container, .hamtaro {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+}
+
+.hamster-container {
+    flex-direction: row;
+    flex-wrap: wrap;
     width: 100%;
     height: 100%;
+    padding: 50px;
 }
 
 .card {
     background-color: #FAF0D7;
     margin: 25px;
-    width: 400px;
+    width: 375px;
     height: 400px;
 }
 
@@ -81,8 +91,6 @@ h1, h4, h5, .card-content {
 }
 
 .hamtaro {
-    align-items: center;
-    justify-content: center;
     height: 98rem;
 }
 
@@ -92,6 +100,7 @@ h1, h4, h5, .card-content {
 
 .btn {
     margin-top: 25px;
+    display
 }
 
 .btn:hover {
@@ -99,14 +108,12 @@ h1, h4, h5, .card-content {
     color: darkgrey;
 }
 
-.hamster {
-    height: 250px;
-    padding: 15px 0 15px 0;
-}
-
-.toy {
-    height: 200px;
-    padding: 5px 0 5px 0;
+.submit {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .card-panel {
