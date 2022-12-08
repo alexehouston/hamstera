@@ -9,6 +9,27 @@ body {
     background-color: #FFD9C0;
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 5vh auto 0
+}
+
+#id_username, #id_password, #id_password1, #id_password2, #id_date {
+    width: 300px;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.helptext {
+    display: block;
+    visibility: hidden;
+}
+
 body, .hamtaro {
     display: flex;
 }
@@ -55,6 +76,10 @@ h1, h4, h5, .card-content {
     color: #FAF0D7;
 }
 
+.left.brand-logo {
+    margin-left: 20px;
+}
+
 .hamster-container, .detail-container, .hamtaro {
     display: flex;
     justify-content: center;
@@ -91,7 +116,7 @@ h1, h4, h5, .card-content {
 }
 
 .hamtaro {
-    height: 98rem;
+    height: 99rem;
 }
 
 #hamtaro {
@@ -100,7 +125,6 @@ h1, h4, h5, .card-content {
 
 .btn {
     margin-top: 25px;
-    display
 }
 
 .btn:hover {
@@ -118,4 +142,16 @@ h1, h4, h5, .card-content {
 
 .card-panel {
     background-color: #FAF0D7;
+    width: 375px;
+    margin: 20px auto;
+}
+
+input.select-dropdown.dropdown-trigger {
+    width: 300px;
+    text-align: center;
+}
+
+.striped {
+    width: 400px;
+    margin: auto;
 }

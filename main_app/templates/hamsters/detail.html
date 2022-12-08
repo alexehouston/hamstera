@@ -27,15 +27,18 @@
         </div>
       </div>
       </div>
+      {% for photo in hamster.photo_set.all %}
+        <img class="responsive-img card-panel" src="{{photo.url}}">
+      {% empty %}
+        <div class="card-panel teal-text center-align">No Photos Uploaded</div>
+      {% endfor %}
+        <form action="{% url 'add_photo' hamster.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
+          {% csrf_token %}
+          <input type="file" name="photo-file">
+          <button type="submit" class="btn">Upload Photo</button>
+        </form>
     </div>
   <div class="col s6">
-    <form action="{% url 'add_feeding' hamster.id %}" method="POST">
-      {% csrf_token %}
-      {{ feeding_form.as_p }}
-      <div class="submit">
-        <input type="submit" class="btn" value="Add Feeding">
-      </div>
-      </form>
     {% if hamster.fed_for_today %}
     <div class="card-panel teal-text center-align"><span class="name">{{hamster.name}}</span> has been fed all meals for today.</div>
     {% else %}
@@ -54,6 +57,13 @@
         {% endfor %}
       </tbody>
     </table>
+    <form action="{% url 'add_feeding' hamster.id %}" method="POST">
+      {% csrf_token %}
+      {{ feeding_form.as_p }}
+      <div class="submit">
+        <input type="submit" class="btn" value="Add Feeding">
+      </div>
+      </form>
   </div>
 </div>
 
@@ -98,7 +108,7 @@
         </div>
       {% endfor %}
     {% else %}
-      <h5>{{cat.name}} Already Has All Toys Available</h5>
+      <h5>{{hamster.name}} Already Has All Toys Available</h5>
     {% endif %}
   </div>
 </div>
